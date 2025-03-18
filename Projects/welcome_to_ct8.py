@@ -6,7 +6,7 @@ stage = StageClass()
 ###############################################
 
 
-stage.set_background("winter")
+stage.set_background("summer")
 mySprite = codesters.Sprite("capybara")
 mySprite.say("hi!")
 
