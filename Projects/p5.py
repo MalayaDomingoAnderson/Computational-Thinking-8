@@ -27,7 +27,7 @@ window.tracer(0)
 # Section 2: Setup
 # TODO - create your player character
 s1=create_sprite ("fish", 0,0)
-s2=create_sprite("shark2", 0,0)
+s2=create_sprite("shark2", 100,100)
 # TODO - set your background
 set_background("underwater")
 # TODO - set the starting value for your variable
@@ -66,16 +66,38 @@ while True:
  	# TODO - code for automatic actions
 
 	s2.setheading(random.randint(1,360))
-	s2.forward(50)
+	s2.forward(100)
 
-	if get_distance(s1,s2)<1:
+	# shark bounce off right side
+	if s2.xcor() > 250:
+		s2.goto(240, s2.ycor())
+		
+	# shark bounce off left side
+	if s2.xcor() < -250:
+		s2.goto(-240, s2.ycor())
+	
+
+	# shark bounce off top
+	if s2.ycor()>250:
+		s2.goto(s2.xcor(), 240)
+
+	# shark bounce off bottom
+	if s2.ycor()<-250:
+		s2.goto(s2.xcor(), -240)
+
+	
+
+	
+
+	if get_distance(s1,s2)<30:
+		print("you lost!")
 		break
-	print("you lost!")
 
 
 	window.update()
 
 	if timer ==600:
+		print("you won!")
+
 		break
 	
-print("you won!")
