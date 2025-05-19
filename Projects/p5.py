@@ -27,31 +27,28 @@ window.tracer(0)
 # Section 2: Setup
 # TODO - create your player character
 s1=create_sprite ("fish", 0,0)
+s2=create_sprite("shark2", 0,0)
 # TODO - set your background
 set_background("underwater")
 # TODO - set the starting value for your variable
 
 # Section 3: Controls
 # TODO - define your controls
-s1.setheading(90)
 def move_up():
 	s1.setheading(90)
 	s1.forward(10)
 
-s1.setheading(180)
 def move_left():
 	s1.setheading(180)
-	s1.left(10)
+	s1.forward(10)
 
-s1.setheading(270)
 def move_down():
 	s1.setheading(270)
-	s1.down(10)
+	s1.forward(10)
 
-s1.setheading(0)
 def move_right():
 	s1.setheading(0)
-	s1.right(10)
+	s1.forward(10)
 # TODO - pick keys for each control
 
 window.onkeypress(move_up, "Up")
@@ -68,15 +65,17 @@ while True:
     
  	# TODO - code for automatic actions
 
+	s2.setheading(random.randint(1,360))
+	s2.forward(50)
 
-
-
+	if get_distance(s1,s2)<1:
+		break
+	print("you lost!")
 
 
 	window.update()
 
-	# if :
-	# 	break
+	if timer ==600:
+		break
 	
-
-print("Game Over")
+print("you won!")

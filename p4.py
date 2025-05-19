@@ -41,6 +41,7 @@ t4 = create_sprite("kitten",x4,y4)
 # Section 4 - Racing
 # TODO - set how much each variable changes by and increase the number of repeats to at least 30
 # TODO - explain here which sprites are faster or slower
+# TODO - sprite 4 or 2 is the fastest depending on what number is chosen for sprite 4, sprite one and two are the same speed.
 for i in range(3):
 	x1 += 10
 	x2 += 15
@@ -59,10 +60,12 @@ for i in range(3):
 # TODO - write another elif for player 3 and player 4
 if x1 >= x2 and x1 >= x3 and x1 >= x4:
 	print("player 1 wins!")
-elif x4 <= x2 and x4 <= x3 and x4 <= x1:
-	print("player 2 wins!")
-
-
+elif x4 >= x2 and x4 >= x3 and x4 >= x1:
+	print("player 4 wins!")
+elif x3 >= x2 and x3 >= x4 and x3 >= x1:
+	print("player 4 wins!")
+elif x2 >= x4 and x2 >= x3 and x2 >= x1:
+	print("player 4 wins!")
 
 
 turtle.exitonclick()
